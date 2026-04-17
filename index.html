@@ -1,76 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Premium Task Card Component</title>
-    <meta name="description" content="A fully responsive, highly testable, and accessible task card component.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <meta
+      name="description"
+      content="A fully responsive, highly testable, and accessible task card component."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <main class="page-container">
-        <article class="task-card" data-testid="test-todo-card">
-            <div class="task-card-glow"></div>
-            <header class="task-header">
-                <div class="task-header-top">
-                    <h2 class="task-title" data-testid="test-todo-title">Finalize Q2 Roadmap Design</h2>
-                    <span class="badge priority-high" data-testid="test-todo-priority" aria-label="Priority: High">High Priority</span>
+      <article class="task-card" data-testid="test-todo-card">
+        <div class="task-card-glow"></div>
+        <div class="priority-indicator priority-indicator-high" data-testid="test-todo-priority-indicator"></div>
+
+        <div class="task-display view-mode-only">
+          <header class="task-header">
+            <div class="task-header-top">
+              <h2 class="task-title" data-testid="test-todo-title">
+                Finalize Q2 Roadmap Design
+              </h2>
+              <span
+                class="badge priority-high"
+                data-testid="test-todo-priority"
+                aria-label="Priority: High"
+                >High Priority</span
+              >
+            </div>
+          </header>
+
+          <div class="task-body">
+            <div class="collapsible-section" data-testid="test-todo-collapsible-section">
+              <p class="task-description" data-testid="test-todo-description">
+                Review and finalize the highly anticipated Q2 roadmap design. Ensure
+                alignment with accessibility guidelines, testability criteria, and
+                the new visual identity. Extra text to demonstrate the collapsible feature.
+              </p>
+            </div>
+            <button class="expand-toggle hidden" data-testid="test-todo-expand-toggle" aria-expanded="false">Show more</button>
+
+            <ul class="task-tags" role="list" data-testid="test-todo-tags">
+              <li class="tag tag-work" data-testid="test-todo-tag-work">Work</li>
+              <li class="tag tag-urgent" data-testid="test-todo-tag-urgent">
+                Urgent
+              </li>
+              <li class="tag tag-design">Design</li>
+            </ul>
+
+            <div class="task-meta">
+              <div class="meta-item time-item">
+                <svg
+                  class="meta-icon"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                  ></path>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+                <div class="meta-text">
+                  <time
+                    class="due-date"
+                    id="due-date-element"
+                    data-testid="test-todo-due-date"
+                    >2026-04-15T14:30</time
+                  >
+                  <span
+                    class="time-remaining"
+                    aria-live="polite"
+                    data-testid="test-todo-time-remaining"
+                    id="time-remaining-element"
+                    >Due tomorrow</span
+                  >
+                  <span class="overdue-indicator hidden" data-testid="test-todo-overdue-indicator">Overdue</span>
                 </div>
-            </header>
-
-            <div class="task-body">
-                <p class="task-description" data-testid="test-todo-description">
-                    Review and finalize the highly anticipated Q2 roadmap design. Ensure alignment with accessibility guidelines, testability criteria, and the new visual identity.
-                </p>
-
-                <ul class="task-tags" role="list" data-testid="test-todo-tags">
-                    <li class="tag tag-work" data-testid="test-todo-tag-work">Work</li>
-                    <li class="tag tag-urgent" data-testid="test-todo-tag-urgent">Urgent</li>
-                    <li class="tag tag-design">Design</li>
-                </ul>
-
-                <div class="task-meta">
-                    <div class="meta-item">
-                        <svg class="meta-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
-                        <div class="meta-text">
-                            <time class="due-date" id="due-date-element" data-testid="test-todo-due-date">Due Apr 15, 2026</time>
-                            <span class="time-remaining" aria-live="polite" data-testid="test-todo-time-remaining" id="time-remaining-element">Due tomorrow</span>
-                        </div>
-                    </div>
-                    <div class="meta-item status-indicator">
-                        <span class="status-dot in-progress"></span>
-                        <span class="status-text" data-testid="test-todo-status" id="status-element">In Progress</span>
-                    </div>
+              </div>
+              <div class="meta-item status-controls-wrapper">
+                <div class="status-indicator">
+                  <span class="status-dot in-progress"></span>
+                  <span
+                    class="status-text"
+                    data-testid="test-todo-status"
+                    id="status-element"
+                    >In Progress</span
+                  >
                 </div>
+                <select class="status-control" data-testid="test-todo-status-control" aria-label="Change Status">
+                  <option value="Pending">Pending</option>
+                  <option value="In Progress" selected>In Progress</option>
+                  <option value="Done">Done</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <footer class="task-footer">
+            <div class="task-completion">
+              <div class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  id="complete-task"
+                  class="custom-checkbox-input"
+                  data-testid="test-todo-complete-toggle"
+                />
+                <label for="complete-task" class="custom-checkbox-label">
+                  <span class="custom-checkbox-box">
+                    <svg
+                      class="checkmark"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="checkbox-text" id="checkbox-text">Mark as Done</span>
+                </label>
+              </div>
             </div>
 
-            <footer class="task-footer">
-                <div class="task-completion">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="complete-task" class="custom-checkbox-input" data-testid="test-todo-complete-toggle">
-                        <label for="complete-task" class="custom-checkbox-label">
-                            <span class="custom-checkbox-box">
-                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            <span class="checkbox-text">Mark as Done</span>
-                        </label>
-                    </div>
-                </div>
+            <div class="task-actions">
+              <button
+                class="action-btn edit-btn"
+                data-testid="test-todo-edit-button"
+                aria-label="Edit task"
+                title="Edit"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20h9"></path>
+                  <path
+                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="action-btn delete-btn"
+                data-testid="test-todo-delete-button"
+                aria-label="Delete task"
+                title="Delete"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path
+                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                  ></path>
+                  <line x1="10" y1="11" x2="10" y2="17"></line>
+                  <line x1="14" y1="11" x2="14" y2="17"></line>
+                </svg>
+              </button>
+            </div>
+          </footer>
+        </div>
 
-                <div class="task-actions">
-                    <button class="action-btn edit-btn" data-testid="test-todo-edit-button" aria-label="Edit task" title="Edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                    </button>
-                    <button class="action-btn delete-btn" data-testid="test-todo-delete-button" aria-label="Delete task" title="Delete">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                    </button>
-                </div>
-            </footer>
-        </article>
+        <form class="task-edit-form hidden" data-testid="test-todo-edit-form">
+          <div class="edit-group">
+            <label for="edit-title">Title</label>
+            <input type="text" id="edit-title" class="form-input" data-testid="test-todo-edit-title-input" required />
+          </div>
+          <div class="edit-group">
+            <label for="edit-desc">Description</label>
+            <textarea id="edit-desc" class="form-input form-textarea" data-testid="test-todo-edit-description-input" required></textarea>
+          </div>
+          <div class="edit-row">
+            <div class="edit-group">
+              <label for="edit-priority">Priority</label>
+              <select id="edit-priority" class="form-input" data-testid="test-todo-edit-priority-select">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="edit-group">
+              <label for="edit-due">Due Date & Time</label>
+              <input type="datetime-local" id="edit-due" class="form-input" data-testid="test-todo-edit-due-date-input" required />
+            </div>
+          </div>
+          <div class="edit-actions">
+            <button type="button" class="btn btn-cancel" data-testid="test-todo-cancel-button">Cancel</button>
+            <button type="submit" class="btn btn-save" data-testid="test-todo-save-button">Save Changes</button>
+          </div>
+        </form>
+      </article>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
